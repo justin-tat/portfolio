@@ -1,1 +1,3 @@
-<p class="contact-bar">contact-bar works!</p>
+<div class="contact-bar">
+  <app-header-icon *ngFor = 'let obj of icons; index as i' [iconUrl] = "obj.iconUrl" [link] = "obj.link"></app-header-icon>
+</div>

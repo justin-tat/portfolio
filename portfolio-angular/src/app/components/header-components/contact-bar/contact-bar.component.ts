@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ICON_LINKS } from '../icon-links';
+import { Contact_Info } from '../contact-info'; 
 
 @Component({
   selector: 'app-contact-bar',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactBarComponent implements OnInit {
 
+  icons: Contact_Info[] = ICON_LINKS;
   constructor() { }
 
   ngOnInit(): void {
