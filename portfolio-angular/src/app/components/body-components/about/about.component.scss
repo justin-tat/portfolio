@@ -1,0 +1,54 @@
+.about {
+  color: rgba(194, 240, 246, 0.65);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  margin-left: 10vw;
+  width: 100%;
+  margin-top: 25vh;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.about-title {
+  display: flex;
+  font-size: 6vh;
+  flex-direction: row;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 60vh;
+}
+
+.about-description {
+  font-size: 2.25vh;
+  color: rgba(194, 240, 246, 0.4);
+}
+
+.about-description:first-of-type {
+  margin-top: 0px;
+}
+
+.about-photo {
+  height: 50vh;
+  width: auto;
+  margin-left: 9vw;
+}
+
+.about-photo:hover {
+  transform: translateY(-1vh) translateX(-1vh);
+  transition: all 0.5s;
+}
+
+.about-title:before, .about-title:after{
+  content:"\00a0\00a0\00a0\00a0\00a0";
+  text-decoration:line-through;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}

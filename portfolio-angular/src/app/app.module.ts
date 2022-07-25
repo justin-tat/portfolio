@@ -6,6 +6,10 @@ import { HeaderComponent } from './components/header-components/header/header.co
 import { SectionsBarComponent } from './components/header-components/sections-bar/sections-bar.component';
 import { ContactBarComponent } from './components/header-components/contact-bar/contact-bar.component';
 import { HeaderIconComponent } from './components/header-components/header-icon/header-icon.component';
+import { HeaderButtonComponent } from './components/header-components/header-button/header-button.component';
+import { TitleCardComponent } from './components/body-components/title-card/title-card.component';
+import { TitleScreenComponent } from './components/body-components/title-screen/title-screen.component';
+import { AboutComponent } from './components/body-components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +17,11 @@ import { HeaderIconComponent } from './components/header-components/header-icon/
     HeaderComponent,
     SectionsBarComponent,
     ContactBarComponent,
-    HeaderIconComponent
+    HeaderIconComponent,
+    HeaderButtonComponent,
+    TitleCardComponent,
+    TitleScreenComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule

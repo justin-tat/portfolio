@@ -1,10 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
+  background-color: #1c2e4a;
 }
+
 .header * {
   height: 100%;
   margin: 0;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.pointer {
+  cursor: pointer;
 }
