@@ -5,6 +5,19 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.section-title {
+  display: flex;
+  font-size: 6vh;
+  flex-direction: row;
+}
+
+.section-title:before, .section-title:after{
+  content:"\00a0\00a0\00a0\00a0\00a0";
+  text-decoration:line-through;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
 .header * {
   height: 100%;
   margin: 0;
