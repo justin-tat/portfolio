@@ -10,6 +10,8 @@ import { HeaderButtonComponent } from './components/header-components/header-but
 import { TitleCardComponent } from './components/body-components/title-card/title-card.component';
 import { TitleScreenComponent } from './components/body-components/title-screen/title-screen.component';
 import { AboutComponent } from './components/body-components/about/about.component';
+import { ProjectExperienceComponent } from './components/body-components/project-experience/project-experience.component';
+import { ProjectExperienceCardComponent } from './components/body-components/project-experience-card/project-experience-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AboutComponent } from './components/body-components/about/about.compone
     HeaderButtonComponent,
     TitleCardComponent,
     TitleScreenComponent,
-    AboutComponent
+    AboutComponent,
+    ProjectExperienceComponent,
+    ProjectExperienceCardComponent
   ],
   imports: [
     BrowserModule

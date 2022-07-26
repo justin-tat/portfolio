@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICON_LINKS } from '../icon-links';
-import { Contact_Info } from '../contact-info'; 
+import { Contact_Info } from '../../../interfaces/contact-info'; 
 
 @Component({
   selector: 'app-contact-bar',
