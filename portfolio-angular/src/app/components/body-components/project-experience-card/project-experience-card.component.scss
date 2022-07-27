@@ -1,0 +1,29 @@
+.experience-title {
+  font-size: 4vh;
+  margin-bottom: 1vh;
+  color: rgba(194, 205, 246, 0.685);
+  margin-left: 5vw;
+}
+
+.experience-content {
+  border-style: outset;
+  border-color:rgba(194, 205, 246, 0.685);
+  border-width: 0.25vw;
+  color:rgba(194, 237, 246, 0.558);
+  font-size: 2vh;
+}
+
+.experience-image {
+  margin-top: 3vh;
+  margin-left: 3vw;
+}
+
+.experience-description {
+  background-color: rgb(46, 23, 93);
+  max-width: 25vw;
+}
+
+
+.experience-tech-list {
+  display: flex;
+}

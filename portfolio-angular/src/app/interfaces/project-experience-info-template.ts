@@ -3,4 +3,5 @@ export interface Project_Experience_Info {
   imageUrl: string;
   description: string;
   linkToGithub: string;
+  technologies: string[][];
 }

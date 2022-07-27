@@ -13,6 +13,7 @@ export class ProjectExperienceCardComponent implements OnInit {
   @Input() imageUrl: string;
   @Input() description: string;
   @Input() linkToGithub: string;
+  @Input() technologies: string[][];
 
   constructor() { }
 

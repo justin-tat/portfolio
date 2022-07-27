@@ -2,7 +2,7 @@
   // text-align: left;
   // margin-left: 10vw;
   width: 100%;
-  // margin-top: 25vh;
+  // 
 }
 
 .about-info {
@@ -30,14 +30,10 @@
 .about-photo-container {
   height: 50vh;
   width: calc( (4.79 / 6.76) * 50vh);
-  //border-left: 7vw;
   position: relative;
   left: 7vw;
   display: flex;
   flex-grow: 1;
-}
-
-.about-photo-container * {
   transition: all 0.5s;
 }
 
