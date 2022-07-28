@@ -2,8 +2,9 @@
 <div class="experience-content">
   <img class="experience-image" [src]="imageUrl" [alt]="imageUrl">
   <p class="experience-description"> {{description}} </p>
-  <h5 class="experience-tech-list-title technologies"> Technologies Used </h5>
+  
   <div class="experience-tech-list technologies" >
+    <h5 class="experience-tech-list-title technologies"> Technologies Used </h5>
     <ul *ngFor = "let techList of technologies">
       <li *ngFor = "let tech of techList" >{{tech}}</li>
     </ul>

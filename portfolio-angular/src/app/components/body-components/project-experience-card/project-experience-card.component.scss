@@ -11,19 +11,26 @@
   border-width: 0.25vw;
   color:rgba(194, 237, 246, 0.558);
   font-size: 2vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .experience-image {
   margin-top: 3vh;
   margin-left: 3vw;
+  //position: absolute;
+  height: 60vh;
+  width: auto;
 }
 
 .experience-description {
-  background-color: rgb(46, 23, 93);
+  background-color: rgb(52, 49, 154);
   max-width: 25vw;
+  position: absolute;
 }
 
 
 .experience-tech-list {
   display: flex;
+  flex-direction: column;
 }
