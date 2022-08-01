@@ -13,6 +13,21 @@
   font-size: 2vh;
   position: relative;
   overflow: hidden;
+  width: 81vw;
+}
+
+.experience-images {
+  width: 40vw;
+  height: auto;
+  padding-top: 3vh;
+  padding-left: 3vw;
+}
+
+.experience-image-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3vh;
+  width: 100%;
 }
 
 .experience-image {
@@ -21,16 +36,34 @@
   //position: absolute;
   height: 60vh;
   width: auto;
+  margin-bottom: 3vh;
 }
 
 .experience-description {
-  background-color: rgb(52, 49, 154);
   max-width: 25vw;
   position: absolute;
+  bottom: 7vh;
 }
 
 
 .experience-tech-list {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 3vh;
+
+}
+
+.text {
+  background-color: rgb(20, 72, 132);
+  padding: 1vw;
+  color: rgba(194, 237, 246, 0.832);
+  border-style:groove;
+  right: 5vw;
+  border-radius: 1vw;
+}
+
+.expanded-image {
+  width: 100%;
+  height: auto;
 }

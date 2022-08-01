@@ -1,10 +1,12 @@
 <div class="section">
   <h2 class="section-title">Project Experience</h2>
-  <app-project-experience-card *ngFor = 'let project of projects' 
+  <app-project-experience-card *ngFor = 'let project of projects; index as i' 
     [title] = "project.title" 
     [imageUrl] = "project.imageUrl" 
     [description] = "project.description" 
     [linkToGithub] = "project.linkToGithub"
     [technologies] = "project.technologies"
+    [index] = i
+    [heights] = heights
   ></app-project-experience-card>
 </div>
