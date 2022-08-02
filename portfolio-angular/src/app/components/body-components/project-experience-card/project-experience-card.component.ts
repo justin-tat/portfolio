@@ -21,9 +21,11 @@ export class ProjectExperienceCardComponent implements OnInit {
   @Input() linkToGithub: string;
   @Input() technologies: string[][];
   @Input() index: number;
-  @Input() image_height: number;
+  @Input() container_height: number;
+  @Input() container_width: number;
   @Input() windowHeight: number;
   url_shown:string = '';
+
 
   constructor() { }
 
@@ -31,9 +33,14 @@ export class ProjectExperienceCardComponent implements OnInit {
   }
 
   getExpandedHeight(): number {
-    console.log("imageHeight: " + this.image_height)
+    console.log("imageHeight: " + this.container_height)
     console.log("windowHeight: " + this.windowHeight);
-    return this.image_height / this.windowHeight * 100
+    return this.container_height / this.windowHeight * 100
+  }
+
+  getBigger(url: string) {
+    var img = document.getElementById(url);
+    let expandedHeight = this.getExpandedHeight();
   }
 
   //toggle_expanded_image(url: string, index: number): void {

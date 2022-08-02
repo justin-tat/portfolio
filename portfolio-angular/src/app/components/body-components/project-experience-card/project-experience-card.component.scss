@@ -18,34 +18,23 @@
 
 
 .experience-images {
-  // width: 40vw;
-  // height: auto;
   width: 40vw;
   height: 60vh;
-  //min-height: 60vh;
-  //height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding-top: 3vh;
   padding-left: 3vw;
+  padding-bottom: 3vh;
 }
 
 .experience-image-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1vh;
   //margin-bottom: 3vh;
-}
-
-.experience-image {
-  margin-top: 3vh;
-  margin-left: 3vw;
-  //position: absolute;
-  height: 60vh;
-  width: auto;
-  margin-bottom: 3vh;
 }
 
 .experience-description {
