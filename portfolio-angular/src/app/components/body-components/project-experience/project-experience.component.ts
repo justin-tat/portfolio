@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterContentInit, OnDestroy } from '@angular/core';
 import { fromEvent, Observable, Subscription } from "rxjs";
 import {Project_Experience_Info} from '../../../interfaces/project-experience-info-template'; 
 import {EXPERIENCE_LINKS} from '../../../../data/project-experience-info';
@@ -8,12 +8,13 @@ import {EXPERIENCE_LINKS} from '../../../../data/project-experience-info';
   templateUrl: './project-experience.component.html',
   styleUrls: ['./project-experience.component.scss']
 })
-export class ProjectExperienceComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ProjectExperienceComponent implements OnInit, AfterContentInit, OnDestroy {
 
   projects : Project_Experience_Info[] = EXPERIENCE_LINKS;
-  heights: Object[] = [{}, {}, {}];
-  resizeObservable$: Observable<Event>
-  resizeSubscription$: Subscription
+  heights: number[] = [1, 1, 1];
+  resizeObservable$: Observable<Event>;
+  resizeSubscription$: Subscription;
+  windowHeight: number = 1;
   constructor() { }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class ProjectExperienceComponent implements OnInit, AfterViewInit, OnDest
     })
   }
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     this.getDimensions();
   }
 
@@ -33,17 +34,21 @@ export class ProjectExperienceComponent implements OnInit, AfterViewInit, OnDest
     this.resizeSubscription$.unsubscribe()
   }
 
+  //Heights not getting updated when getDimensions is called
   getDimensions() {
     var elements = Array.from(document.getElementsByClassName('experience-images') as HTMLCollectionOf<HTMLElement>);
-    //console.log(elements);
+    // this.windowDimensions = {
+    //   'width': window.innerWidth,
+    //   'height': window.innerHeight
+    // };
+    this.windowHeight = window.innerHeight;
+    var updatedHeights = [];
     for(let index:number = 0; index < elements.length; index++){
-      //console.log(elements[index]);
-      this.heights[index] = {
-        'width': elements[index].offsetWidth,
-        'height': elements[index].offsetHeight
-      };
+      //this.heights[index] = elements[index].offsetHeight;
+      updatedHeights.push(elements[index].offsetHeight);
     }
-    console.log(this.heights);
+    this.heights = ([] as number[]).concat(updatedHeights);
+    //console.log(this.heights);
   }
 
 }

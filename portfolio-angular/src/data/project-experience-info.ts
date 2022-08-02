@@ -5,8 +5,11 @@ export const EXPERIENCE_LINKS = [
       [
         '/assets/experience-gifs/positive_charge/login_find_charger.gif',
         '/assets/experience-gifs/positive_charge/poi.gif',
-        '/assets/experience-gifs/positive_charge/add_poi.gif',
       ],
+      [
+        '/assets/experience-gifs/positive_charge/add_poi.gif',
+        '/assets/experience-gifs/positive_charge/location_details.gif',
+      ]
       // [
       //   '/assets/experience-gifs/positive_charge/add_poi.gif',
       //   '/assets/experience-gifs/positive_charge/location_details.gif'

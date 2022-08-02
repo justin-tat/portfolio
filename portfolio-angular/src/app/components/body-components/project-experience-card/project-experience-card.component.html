@@ -22,16 +22,16 @@
   </div> -->
   <div *ngIf = "url_shown === ''; else expandedImage">
     <div class="experience-images">
-      <div *ngFor = "let imageSet of imageUrl" class = "experience-image-row">
+      <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount, 'marginBottom.vw': 1}">
         <img 
           *ngFor = "let image of imageSet; count as c"
           [src] = image 
           [alt] = image
           class = experience-img
           [ngStyle] = "{
-            'width.%': 100/c, 
-            'height': 'auto',
-            'margin.vw': 1
+            'height.%': 100,
+            'width': 'auto',
+            'marginLeft.vw': 1
           }"
           (mouseenter) = "toggle_expanded_image(image)"
         />
@@ -40,7 +40,17 @@
   </div>
   <ng-template #expandedImage>
     <div class="experience-images">
-      <img [src] = url_shown alt = url_shown (mouseleave) = "toggle_expanded_image('')" class="expanded-image">
+      <img 
+        [src] = url_shown 
+        alt = url_shown 
+        (mouseleave) = "toggle_expanded_image('')" 
+        class="expanded-image" 
+        [ngStyle] = "{
+          'height.%': 100,
+          'maxWidth.%': 100,
+          'width': 'auto'
+        }"
+        >
     </div>
   </ng-template>
   <!-- <img class="experience-image" [src]="imageUrl" [alt]="imageUrl"> -->

@@ -16,9 +16,18 @@
   width: 81vw;
 }
 
+
 .experience-images {
+  // width: 40vw;
+  // height: auto;
   width: 40vw;
-  height: auto;
+  height: 60vh;
+  //min-height: 60vh;
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 3vh;
   padding-left: 3vw;
 }
@@ -26,8 +35,8 @@
 .experience-image-row {
   display: flex;
   align-items: center;
-  margin-bottom: 3vh;
-  width: 100%;
+  justify-content: space-between;
+  //margin-bottom: 3vh;
 }
 
 .experience-image {
@@ -61,9 +70,4 @@
   border-style:groove;
   right: 5vw;
   border-radius: 1vw;
-}
-
-.expanded-image {
-  width: 100%;
-  height: auto;
 }

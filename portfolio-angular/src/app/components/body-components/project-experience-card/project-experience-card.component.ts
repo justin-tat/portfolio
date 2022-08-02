@@ -21,7 +21,8 @@ export class ProjectExperienceCardComponent implements OnInit {
   @Input() linkToGithub: string;
   @Input() technologies: string[][];
   @Input() index: number;
-  @Input() heights: Object[];
+  @Input() image_height: number;
+  @Input() windowHeight: number;
   url_shown:string = '';
 
   constructor() { }
@@ -29,12 +30,15 @@ export class ProjectExperienceCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-
+  getExpandedHeight(): number {
+    console.log("imageHeight: " + this.image_height)
+    console.log("windowHeight: " + this.windowHeight);
+    return this.image_height / this.windowHeight * 100
   }
 
   //toggle_expanded_image(url: string, index: number): void {
   toggle_expanded_image(url: string): void {
+
     this.url_shown = url;
   }
 
