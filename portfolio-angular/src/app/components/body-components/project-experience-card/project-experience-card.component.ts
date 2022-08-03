@@ -10,7 +10,9 @@ import {Project_Experience_Info} from '../../../interfaces/project-experience-in
   animations: [
     trigger('expand_gif', [
       transition('void => *', [
+        //Applied at beginning
         style( {opacity: 0} ),
+        //Specifies how long it takes to apply given styles
         animate(2000)
       ])
     ])
