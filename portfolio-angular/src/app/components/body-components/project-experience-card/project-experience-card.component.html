@@ -1,26 +1,8 @@
 <h4 class="experience-title" (click) = "gotoLink(linkToGithub)"> {{title}} </h4>
-<div class="experience-content" (click) = "gotoLink(linkToGithub)">
-  <!-- <div *ngIf = "url_shown === ''; else expanded_image" class="experience-images">
-    <div *ngFor = "let imageSet of imageUrl" class = "experience-image-row">
-      <img 
-        *ngFor = "let image of imageSet; count as c"
-        [src] = image 
-        [alt] = image
-        class = experience-img
-        [ngStyle] = "{
-          'width.%': 100/c, 
-          'height': 'auto'
-        }"
-        (mouseenter) = "toggle_expanded_image(image)"
-      />
-    </div>
-    <ng-template #expanded_image>
-      <div class="experience-images">
-        <img [src] = url_shown alt = url_shown (mouseleave) = "toggle_expanded_image('')">
-      </div>
-    </ng-template>
-  </div> -->
-  <div *ngIf = "url_shown === ''; else expandedImage">
+<div class="experience-content" >
+
+     <!-- version 1 -->
+    <!-- <div *ngIf = "url_shown === ''; else expandedImage">
     <div class="experience-images">
       <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount}">
         <img 
@@ -28,6 +10,7 @@
           [src] = image 
           [alt] = image
           class = experience-img
+          [id] = image
           [ngStyle] = "{
             'height.%': 100,
             'marginLeft.vw': 1
@@ -42,20 +25,57 @@
       <img 
         [src] = url_shown 
         alt = url_shown 
-        (mouseleave) = "toggle_expanded_image('')" 
-        class="expanded-image" 
-        [ngStyle] = "{
-          'height.%': 100,
-          'maxWidth.%': 100,
-          'width': 'auto'
-        }"
+        class="expanded-image"
+        [id] = url_shown
+        [ngStyle] = "getBigger(url_shown)"
         >
+      <img src="/assets/icons/back-to-default.png" alt="back to default view" class="back-to-default" (click) = "toggle_expanded_image('')">
+    </div>
+  </ng-template> -->
+
+  <!-- version 2 -->
+  <div *ngIf = "url_shown === ''; else expandedImage">
+    <div class="experience-images">
+      <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount}">
+        <img 
+          *ngFor = "let image of imageSet; count as c"
+          [src] = image 
+          [alt] = image
+          class = experience-img
+          [id] = image
+          [ngStyle] = "{
+            'height.%': 100,
+            'marginLeft.vw': 1
+          }"
+          (click) = "toggle_expanded_image(image)"
+        />
+      </div>
+    </div>
+  </div>
+  <ng-template #expandedImage>
+    <div class="experience-images" >
+      <div 
+        [ngStyle] = "{'position': 'relative', 'height.%': 100, 'width.%': 100, 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
+      >
+        <img
+        @expand_gif
+        [src] = url_shown 
+        alt = url_shown 
+        class="expanded-image"
+        [id] = url_shown
+        [ngStyle] = "getBigger(url_shown)"
+        >
+        <img src="/assets/icons/back-to-default.png" alt="back to default view" class="back-to-default" (click) = "toggle_expanded_image('')">
+      </div>
     </div>
   </ng-template>
+
+
+
   <p class="experience-description text"> {{description}} </p>
   
   <div class="experience-tech-list text" >
-    <h5 class="experience-tech-list-title "> Tech Stack </h5>
+    <span class="experience-tech-list-title "> Tech Stack </span>
     <div [ngStyle] = "{display: 'flex'}">
       <ul *ngFor = "let techList of technologies" >
         <li *ngFor = "let tech of techList" >{{tech}}</li>

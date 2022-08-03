@@ -40,8 +40,11 @@ export class ProjectExperienceComponent implements OnInit, AfterContentInit, OnD
     var updatedHeights = [];
     var updatedWidths = [];
     for(let index:number = 0; index < elements.length; index++){
-      updatedHeights.push(elements[index].offsetHeight);
-      updatedWidths.push(elements[index].offsetWidth);
+      //Maybe change to clientWidth to get it without margin and padding
+      updatedHeights.push(elements[index].clientHeight);
+      updatedWidths.push(elements[index].clientWidth);
+      // updatedHeights.push(elements[index].offsetHeight);
+      // updatedWidths.push(elements[index].offsetWidth);
     }
     this.heights = ([] as number[]).concat(updatedHeights);
     this.widths = ([] as number[]).concat(updatedWidths);
