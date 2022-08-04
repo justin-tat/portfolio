@@ -9,13 +9,17 @@ import {Project_Experience_Info} from '../../../interfaces/project-experience-in
   styleUrls: ['./project-experience-card.component.scss'],
   animations: [
     trigger('expand_gif', [
-      transition('void => *', [
+      transition('void <=> *', [
         //Applied at beginning
-        style( {opacity: 0} ),
+        style( {opacity: 0, height: 0, width: 0} ),
         //Specifies how long it takes to apply given styles
-        animate(2000)
-      ])
-    ])
+        animate(500)
+      ]),
+      // transition('* => void', [
+      //   style({opacity: 1}),
+      //   animate(5000, style({opacity: 0}))
+      // ])
+    ]),
   ]
 })
 export class ProjectExperienceCardComponent implements OnInit {

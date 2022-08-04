@@ -38,6 +38,7 @@
     <div class="experience-images">
       <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount}">
         <img 
+          @expand_gif
           *ngFor = "let image of imageSet; count as c"
           [src] = image 
           [alt] = image
@@ -72,14 +73,18 @@
 
 
 
-  <p class="experience-description text"> {{description}} </p>
-  
-  <div class="experience-tech-list text" >
-    <span class="experience-tech-list-title "> Tech Stack </span>
-    <div [ngStyle] = "{display: 'flex'}">
-      <ul *ngFor = "let techList of technologies" >
-        <li *ngFor = "let tech of techList" >{{tech}}</li>
-      </ul>
+  <div class=experience-text>
+    <span class="experience-description text"> {{description}} </span>
+
+    <button class = "gif-button"> <span> Hello There </span> </button>
+    
+    <div class="experience-tech-list text" >
+      <span > Tech Stack </span>
+      <div [ngStyle] = "{display: 'flex'}">
+        <ul *ngFor = "let techList of technologies" >
+          <li *ngFor = "let tech of techList" >{{tech}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

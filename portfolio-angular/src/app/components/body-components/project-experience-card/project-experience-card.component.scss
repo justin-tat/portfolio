@@ -14,6 +14,8 @@
   position: relative;
   overflow: hidden;
   width: 81vw;
+  display: flex;
+  justify-content: space-around;
 }
 
 
@@ -48,19 +50,39 @@
   z-index: 2;
 }
 
-.experience-description {
-  max-width: 25vw;
-  position: absolute;
-  bottom: 1vh;
+// .experience-description {
+//   max-width: 25vw;
+//   position: absolute;
+//   bottom: 1vh;
+// }
+
+// .experience-tech-list {
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   top: 1vh;
+
+// }
+
+.experience-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:flex-end;
 }
 
+.experience-text > * {
+  margin-right: 5%;
+  max-width: 50%;
+}
+
+.gif-button {
+  align-self: center;
+}
 
 .experience-tech-list {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 1vh;
-
 }
 
 .text {
