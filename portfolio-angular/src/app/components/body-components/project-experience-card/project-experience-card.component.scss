@@ -11,17 +11,18 @@
   border-width: 0.25vw;
   color:rgba(194, 237, 246, 0.558);
   font-size: 2vh;
-  position: relative;
   overflow: hidden;
   width: 81vw;
+  height: 70vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
 .experience-images {
   width: 40vw;
-  height: 60vh;
+  height: 67vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +32,8 @@
   padding-bottom: 3vh;
   box-sizing:border-box;
   position: relative;
+  flex: 1;
+  flex-shrink: 0;
 }
 
 .experience-image-row {
@@ -39,15 +42,6 @@
   justify-content: space-between;
   margin-bottom: 1vh;
   //margin-bottom: 3vh;
-}
-
-.back-to-default {
-  position: absolute;
-  top: 2vh;
-  left: 2vw;
-  height: 2vh;
-  width: 2vh;
-  z-index: 2;
 }
 
 // .experience-description {
@@ -66,9 +60,12 @@
 
 .experience-text {
   display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items:flex-end;
+  flex: 1;
+  flex-shrink: 0;
 }
 
 .experience-text > * {
@@ -76,9 +73,7 @@
   max-width: 50%;
 }
 
-.gif-button {
-  align-self: center;
-}
+
 
 .experience-tech-list {
   display: flex;
@@ -92,4 +87,20 @@
   border-style:groove;
   right: 2vw;
   border-radius: 1vw;
+}
+
+.gif-button {
+  align-self: center;
+  font-size: 2vh;
+  letter-spacing: 0.05vw;
+  padding: 2vh;
+  border-radius: 2.5vh;
+  border-color: rgba(194, 237, 246, 0.832); 
+  border-style: groove;
+  transition: 1s;
+}
+
+.gif-button:hover {
+  box-shadow: 0 0px 1.25vh 0.75vh rgba(194, 237, 246) inset, 0 0px 1.25vh .75vh rgba(194, 237, 246);
+  text-shadow:  0 0px 1.25vh rgba(194, 237, 246);
 }

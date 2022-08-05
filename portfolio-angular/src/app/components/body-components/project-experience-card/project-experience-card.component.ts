@@ -20,6 +20,9 @@ import {Project_Experience_Info} from '../../../interfaces/project-experience-in
       //   animate(5000, style({opacity: 0}))
       // ])
     ]),
+    // trigger('bounce_button', [
+    //   transition('')
+    // ])
   ]
 })
 export class ProjectExperienceCardComponent implements OnInit {
