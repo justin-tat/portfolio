@@ -54,10 +54,7 @@
     </div>
   </div>
   <ng-template #expandedImage>
-    <div class="experience-images" >
-      <!-- <div 
-        [ngStyle] = "{'position': 'relative', 'height.%': 100, 'width.%': 100, 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
-      > -->
+    <div class="experience-images">
         <img
         @expand_gif
         [src] = url_shown 
@@ -66,8 +63,6 @@
         [id] = url_shown
         [ngStyle] = "getBigger(url_shown)"
         >
-        <!-- <img src="/assets/icons/back-to-default.png" alt="back to default view" class="back-to-default" (click) = "toggle_expanded_image('')"> -->
-      <!-- </div> -->
     </div>
   </ng-template>
 
@@ -76,7 +71,7 @@
   <div class=experience-text>
     <span class="experience-description text"> {{description}} </span>
 
-    <button class = "gif-button text" (click) = "toggle_expanded_image('')"> {{url_shown === '' ? 'Click on GIF to expand' : 'Revert to Default View'}} </button>
+    <button class = "gif-button text" (click) = "toggle_expanded_image('')" [@wiggle_button] = "url_shown == '' ? 'true' : 'false'"> {{revert_image ? 'Revert to Default View' : 'Click on GIF to expand'}} </button>
     
     <div class="experience-tech-list text" >
       <span > Tech Stack </span>

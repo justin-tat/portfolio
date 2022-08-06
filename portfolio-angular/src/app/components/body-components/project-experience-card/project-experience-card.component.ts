@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { trigger, state, transition, animate, style } from '@angular/animations';
+import { trigger, state, transition, animate, style, keyframes } from '@angular/animations';
 
 import {Project_Experience_Info} from '../../../interfaces/project-experience-info-template'; 
 
@@ -15,14 +15,21 @@ import {Project_Experience_Info} from '../../../interfaces/project-experience-in
         //Specifies how long it takes to apply given styles
         animate(500)
       ]),
-      // transition('* => void', [
-      //   style({opacity: 1}),
-      //   animate(5000, style({opacity: 0}))
-      // ])
     ]),
-    // trigger('bounce_button', [
-    //   transition('')
-    // ])
+    trigger('wiggle_button', [
+      transition('true <=> false', [
+        animate(750, keyframes([
+          style({ transform: 'rotate(5deg)'}),
+          style({ transform: 'rotate(-5deg)'}),
+          style({ transform: 'rotate(5deg)'}),
+          style({ transform: 'rotate(-5deg)'}),
+          style({ transform: 'rotate(5deg)'}),
+          style({ transform: 'rotate(-5deg)'}),
+          style({ transform: 'rotate(5deg)'}),
+          style({ transform: 'rotate(0)'})
+        ]))
+      ])
+    ])
   ]
 })
 export class ProjectExperienceCardComponent implements OnInit {
@@ -37,6 +44,7 @@ export class ProjectExperienceCardComponent implements OnInit {
   @Input() container_width: number;
   @Input() windowHeight: number;
   url_shown:string = '';
+  revert_image:boolean = false;
 
 
   constructor() { }
@@ -58,7 +66,9 @@ export class ProjectExperienceCardComponent implements OnInit {
 
   //toggle_expanded_image(url: string, index: number): void {
   toggle_expanded_image(url: string): void {
+    this.revert_image = url === '' ? false : true;
     this.url_shown = url;
+
   }
 
   gotoLink(url: string): void {
