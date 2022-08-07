@@ -8,8 +8,7 @@
 
 # Node
 /node_modules
-node_modules/*
-.idea/
+portfolio-angular/node_modules/*
 npm-debug.log
 yarn-error.log
 
