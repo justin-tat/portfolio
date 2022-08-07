@@ -104,8 +104,6 @@ export class ProjectExperienceCardComponent implements OnInit, AfterContentInit,
     let view_height = window.innerHeight;
     let height:DOMRect = button[0].getBoundingClientRect();
     try {
-      console.log('height.bottom: ' + height.bottom);
-      console.log('view_height: ' + view_height);
       //Can't be above the viewport and must be in the upper 3/4 of the viewport
       if (height.bottom < view_height && height.bottom > 0) {
         this.in_upper_portion = true;
