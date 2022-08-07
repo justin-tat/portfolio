@@ -36,8 +36,6 @@
 
   <div class=experience-text>
     <span class="experience-description text"> {{description}} </span>
-
-    <!-- <button class = "gif-button text " (click) = "toggle_expanded_image('')" [@wiggle_button] = "url_shown == '' ? 'true' : 'false'"> {{revert_image ? 'Revert to Default View' : 'Click on GIF to expand'}} </button> -->
     <button 
       [ngClass] = "['gif-button', 'text', linkToGithub]" 
       (click) = "toggle_expanded_image('')" 

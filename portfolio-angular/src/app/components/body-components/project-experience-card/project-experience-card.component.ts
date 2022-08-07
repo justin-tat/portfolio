@@ -73,9 +73,7 @@ export class ProjectExperienceCardComponent implements OnInit, AfterContentInit,
   ngOnInit(): void {}
 
   ngAfterContentInit(): void {
-    this.wiggle_observable$ = fromEvent(window, 'scroll').pipe(
-      throttleTime(100),
-    );
+    this.wiggle_observable$ = fromEvent(window, 'scroll');
     this.wiggle_subscription$ = this.wiggle_observable$.subscribe( evt => {
       this.is_on_screen();
     })
@@ -102,35 +100,21 @@ export class ProjectExperienceCardComponent implements OnInit, AfterContentInit,
 
   //Checks if the revert_image button is 3/4 of the way down the viewport on scroll. Shakes the div when this is true.
   is_on_screen():void {
-    /*
-    You can use the window. innerHeight property to get the viewport height, and the window. innerWidth to get its width. let viewportHeight = window
-
-    In more technical terms, window.scrollY returns the Y coordinate of the top edge of the current viewport. If there is no viewport, the returned value is 0.
-
-    Get button's bindingRect by using linkToGithub
-
-
-    if element is above 3/4 line of screen and top of element is below top of scrollY then set wiggle to true
-
-    if element is above scrollY or is below scrollY + innerHeight, then set to false
-    */
-
     var button = Array.from(document.getElementsByClassName(this.linkToGithub) as HTMLCollectionOf<HTMLElement>);
     let view_height = window.innerHeight;
     let height:DOMRect = button[0].getBoundingClientRect();
     try {
-      if (height.bottom < 0.9 * view_height && height.bottom > 0) {
+      console.log('height.bottom: ' + height.bottom);
+      console.log('view_height: ' + view_height);
+      //Can't be above the viewport and must be in the upper 3/4 of the viewport
+      if (height.bottom < view_height && height.bottom > 0) {
         this.in_upper_portion = true;
       } else {
         this.in_upper_portion = false;
       }
     } catch (e) {
       console.log("Failed to access the button component most likely: " + e);
-    }
-    console.log(height);
-    //Can't be above the viewport and must be in the upper 3/4 of the viewport
-      
-
+    } 
   }
 
   gotoLink(url: string): void {

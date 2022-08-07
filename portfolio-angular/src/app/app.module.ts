@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header-components/header/header.component';
-import { SectionsBarComponent } from './components/header-components/sections-bar/sections-bar.component';
 import { ContactBarComponent } from './components/header-components/contact-bar/contact-bar.component';
 import { HeaderIconComponent } from './components/header-components/header-icon/header-icon.component';
 import { HeaderButtonComponent } from './components/header-components/header-button/header-button.component';
@@ -18,7 +17,6 @@ import { ProjectExperienceCardComponent } from './components/body-components/pro
   declarations: [
     AppComponent,
     HeaderComponent,
-    SectionsBarComponent,
     ContactBarComponent,
     HeaderIconComponent,
     HeaderButtonComponent,
@@ -26,7 +24,7 @@ import { ProjectExperienceCardComponent } from './components/body-components/pro
     TitleScreenComponent,
     AboutComponent,
     ProjectExperienceComponent,
-    ProjectExperienceCardComponent
+    ProjectExperienceCardComponent,
   ],
   imports: [
     BrowserModule,
