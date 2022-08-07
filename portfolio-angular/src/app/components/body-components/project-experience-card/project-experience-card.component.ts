@@ -1,7 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, AfterContentInit } from '@angular/core';
 import { trigger, state, transition, animate, style, keyframes } from '@angular/animations';
+import { fromEvent, Observable, Subscription } from "rxjs";
+import {tap, throttleTime} from 'rxjs/operators';
 
 import {Project_Experience_Info} from '../../../interfaces/project-experience-info-template'; 
+
+
 
 @Component({
   selector: 'app-project-experience-card',
@@ -29,10 +33,24 @@ import {Project_Experience_Info} from '../../../interfaces/project-experience-in
           style({ transform: 'rotate(0)'})
         ]))
       ])
+    ]),
+    trigger('button_onscreen', [
+      transition('false => true', [
+        animate(1500, keyframes([
+          style({ transform: 'rotate(10deg)'}),
+          style({ transform: 'rotate(-10deg)'}),
+          style({ transform: 'rotate(10deg)'}),
+          style({ transform: 'rotate(-10deg)'}),
+          style({ transform: 'rotate(10deg)'}),
+          style({ transform: 'rotate(-10deg)'}),
+          style({ transform: 'rotate(10deg)'}),
+          style({ transform: 'rotate(0)'})
+        ]))
+      ])
     ])
   ]
 })
-export class ProjectExperienceCardComponent implements OnInit {
+export class ProjectExperienceCardComponent implements OnInit, AfterContentInit, OnDestroy {
 
   @Input() title: string;
   @Input() imageUrl: string[][];
@@ -45,11 +63,22 @@ export class ProjectExperienceCardComponent implements OnInit {
   @Input() windowHeight: number;
   url_shown:string = '';
   revert_image:boolean = false;
+  wiggle_observable$: Observable<Event>;
+  wiggle_subscription$: Subscription;
+  in_upper_portion:boolean = false;
 
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
+    this.wiggle_observable$ = fromEvent(window, 'scroll').pipe(
+      throttleTime(100),
+    );
+    this.wiggle_subscription$ = this.wiggle_observable$.subscribe( evt => {
+      this.is_on_screen();
+    })
   }
 
   getExpandedHeight(): number {
@@ -71,8 +100,45 @@ export class ProjectExperienceCardComponent implements OnInit {
 
   }
 
+  //Checks if the revert_image button is 3/4 of the way down the viewport on scroll. Shakes the div when this is true.
+  is_on_screen():void {
+    /*
+    You can use the window. innerHeight property to get the viewport height, and the window. innerWidth to get its width. let viewportHeight = window
+
+    In more technical terms, window.scrollY returns the Y coordinate of the top edge of the current viewport. If there is no viewport, the returned value is 0.
+
+    Get button's bindingRect by using linkToGithub
+
+
+    if element is above 3/4 line of screen and top of element is below top of scrollY then set wiggle to true
+
+    if element is above scrollY or is below scrollY + innerHeight, then set to false
+    */
+
+    var button = Array.from(document.getElementsByClassName(this.linkToGithub) as HTMLCollectionOf<HTMLElement>);
+    let view_height = window.innerHeight;
+    let height:DOMRect = button[0].getBoundingClientRect();
+    try {
+      if (height.bottom < 0.9 * view_height && height.bottom > 0) {
+        this.in_upper_portion = true;
+      } else {
+        this.in_upper_portion = false;
+      }
+    } catch (e) {
+      console.log("Failed to access the button component most likely: " + e);
+    }
+    console.log(height);
+    //Can't be above the viewport and must be in the upper 3/4 of the viewport
+      
+
+  }
+
   gotoLink(url: string): void {
     window.open(url, "_blank");
+  }
+
+  ngOnDestroy() {
+    this.wiggle_subscription$.unsubscribe()
   }
 
 }

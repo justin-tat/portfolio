@@ -1,39 +1,5 @@
 <h4 class="experience-title" (click) = "gotoLink(linkToGithub)"> {{title}} </h4>
 <div class="experience-content" >
-
-     <!-- version 1 -->
-    <!-- <div *ngIf = "url_shown === ''; else expandedImage">
-    <div class="experience-images">
-      <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount}">
-        <img 
-          *ngFor = "let image of imageSet; count as c"
-          [src] = image 
-          [alt] = image
-          class = experience-img
-          [id] = image
-          [ngStyle] = "{
-            'height.%': 100,
-            'marginLeft.vw': 1
-          }"
-          (mouseenter) = "toggle_expanded_image(image)"
-        />
-      </div>
-    </div>
-  </div>
-  <ng-template #expandedImage>
-    <div class="experience-images">
-      <img 
-        [src] = url_shown 
-        alt = url_shown 
-        class="expanded-image"
-        [id] = url_shown
-        [ngStyle] = "getBigger(url_shown)"
-        >
-      <img src="/assets/icons/back-to-default.png" alt="back to default view" class="back-to-default" (click) = "toggle_expanded_image('')">
-    </div>
-  </ng-template> -->
-
-  <!-- version 2 -->
   <div *ngIf = "url_shown === ''; else expandedImage">
     <div class="experience-images">
       <div *ngFor = "let imageSet of imageUrl; count as rowCount" class = "experience-image-row" [ngStyle] = "{'height.%': 100/rowCount}">
@@ -71,7 +37,13 @@
   <div class=experience-text>
     <span class="experience-description text"> {{description}} </span>
 
-    <button class = "gif-button text" (click) = "toggle_expanded_image('')" [@wiggle_button] = "url_shown == '' ? 'true' : 'false'"> {{revert_image ? 'Revert to Default View' : 'Click on GIF to expand'}} </button>
+    <!-- <button class = "gif-button text " (click) = "toggle_expanded_image('')" [@wiggle_button] = "url_shown == '' ? 'true' : 'false'"> {{revert_image ? 'Revert to Default View' : 'Click on GIF to expand'}} </button> -->
+    <button 
+      [ngClass] = "['gif-button', 'text', linkToGithub]" 
+      (click) = "toggle_expanded_image('')" 
+      [@wiggle_button] = "url_shown == '' ? 'true' : 'false'"
+      [@button_onscreen] = "in_upper_portion"
+      > {{revert_image ? 'Revert to Default View' : 'Click on GIF to expand'}} </button>
     
     <div class="experience-tech-list text" >
       <span > Tech Stack </span>
