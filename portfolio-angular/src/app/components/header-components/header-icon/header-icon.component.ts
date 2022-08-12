@@ -15,7 +15,7 @@ export class HeaderIconComponent implements OnInit {
   }
   goToLink(url: string) {
     let mailText = "mailto:jtat5912@gmail.com";
-    if(url == "/assets/icons/gmail-icon.png")  {
+    if(url == "assets/icons/gmail-icon.png")  {
       window.location.href = mailText;
     }
     else {
