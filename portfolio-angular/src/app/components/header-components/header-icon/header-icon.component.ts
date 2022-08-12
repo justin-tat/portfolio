@@ -16,7 +16,9 @@ export class HeaderIconComponent implements OnInit {
   goToLink(url: string) {
     let mailText = "mailto:jtat5912@gmail.com";
     if(url == "assets/icons/gmail-icon.png")  {
-      window.location.href = mailText;
+      //window.location.href = mailText;
+      console.log("You have successfully updated the deployed version")
+      window.open(mailText);
     }
     else {
       window.open(url, "_blank");
