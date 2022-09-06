@@ -78,6 +78,7 @@
 .experience-tech-list {
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .text {
@@ -104,4 +105,34 @@
 .gif-button:hover {
   box-shadow: 0 0px 1.25vh 0.75vh rgba(194, 237, 246) inset, 0 0px 1.25vh .75vh rgba(194, 237, 246);
   text-shadow:  0 0px 1.25vh rgba(194, 237, 246);
+}
+
+@media screen and (max-width: 768px) {
+  .experience-content {
+    flex-direction: column;
+    display: flex;
+    overflow: auto;
+    height: auto;
+    align-items: center;
+  }
+  .experience-images {
+    height: 30rem;
+    max-height: 30rem;
+    padding-left: 0;
+  }
+  .expanded-image {
+    height: 30rem;
+    max-height: 30rem;
+  }
+  .experience-text {
+    align-items: center;
+    margin-top: 5%;
+  }
+  .gif-button {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .experience-tech-list {
+    width: 80%;
+  }
 }

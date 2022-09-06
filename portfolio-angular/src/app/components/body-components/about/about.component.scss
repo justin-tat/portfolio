@@ -16,6 +16,7 @@
   flex-direction: column;
   width: 50%;
   height: 60vh;
+  overflow: auto;
 }
 
 .about-description {
@@ -30,10 +31,11 @@
 .about-photo-container {
   height: 50vh;
   width: calc( (4.79 / 6.76) * 50vh);
-  position: relative;
-  left: 7vw;
+  // position: relative;
+  // left: 7vw;
   display: flex;
   flex-grow: 1;
+  margin-left: 7vw;
 }
 
 .about-photo-container * {
@@ -67,4 +69,17 @@
 
 .about-photo-container:hover > .about-photo-background{
   transform: translateY(2vh) translateX(2vh);
+}
+
+@media screen and (max-width: 768px) {
+  .about-info {
+    flex-direction: column;
+  }
+  .about-photo-container {
+    margin-top: 5vh;
+  }
+  .about-text {
+    width: 80%;
+  }
+
 }

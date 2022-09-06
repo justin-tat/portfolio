@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+
 body {
   margin: 0;
   background-color: #141f31;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
 }
 .section {
   text-align: left;
@@ -34,3 +38,4 @@ body {
 .pointer {
   cursor: pointer;
 }
+
